@@ -204,8 +204,7 @@
             { "fr": "rossignol", "es": "ruiseñor","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/ruiseñor.jfif" },
             { "fr": "rouge-gorge", "es": "petirrojo","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/petirrojo.jfif" },
             { "fr": "tourterelle", "es": "tórtola","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/tórtola.jfif" },
-            { "fr": "vautour", "es": "buitre","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/buitre.jfif" },
-
+            { "fr": "vautour", "es": "buitre","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/buitre.jfif" }
         ]
     },
     "expressions": [
