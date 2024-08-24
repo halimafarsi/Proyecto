@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         gameSection.style.display = 'block';
         scoreElement.textContent = `Puntuación: ${score}`;
         loadNextWord();
-        answerInput.focus(); // Foco automático en el campo de entrada
     }
 
     function loadNextWord() {
@@ -70,11 +69,18 @@ document.addEventListener('DOMContentLoaded', async function () {
             questionElement.textContent = currentTopic === 'Thème' ? wordPair.fr : wordPair.es;
 
             if (wordPair.img) {
-                console.log("Intentando cargar la imagen desde:", wordPair.img); // Log de depuración
+                console.log("Intentando cargar la imagen desde:", wordPair.img);
                 imageElement.src = wordPair.img;
                 imageElement.style.display = 'block';
+
+                // Verifica si la imagen se carga correctamente
+                imageElement.onerror = () => {
+                    console.log("No se pudo cargar la imagen desde la URL:", wordPair.img);
+                    imageElement.style.display = 'none';
+                };
+
             } else {
-                console.log("No se encontró imagen para esta palabra."); // Log de depuración
+                console.log("No se encontró imagen para esta palabra.");
                 imageElement.style.display = 'none';
             }
 
@@ -90,17 +96,24 @@ document.addEventListener('DOMContentLoaded', async function () {
             questionElement.textContent = currentTopic === 'Thème' ? expressionPair.fr : expressionPair.es;
 
             if (expressionPair.img) {
-                console.log("Intentando cargar la imagen desde:", expressionPair.img); // Log de depuración
+                console.log("Intentando cargar la imagen desde:", expressionPair.img);
                 imageElement.src = expressionPair.img;
                 imageElement.style.display = 'block';
+
+                // Verifica si la imagen se carga correctamente
+                imageElement.onerror = () => {
+                    console.log("No se pudo cargar la imagen desde la URL:", expressionPair.img);
+                    imageElement.style.display = 'none';
+                };
+
             } else {
-                console.log("No se encontró imagen para esta expresión."); // Log de depuración
+                console.log("No se encontró imagen para esta expresión.");
                 imageElement.style.display = 'none';
             }
 
             startTimer();
         } else {
-            endGame();
+            checkFinalAnswer();
         }
     }
 
@@ -108,8 +121,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (currentIndex < 10) {
             const wordPair = currentWords[currentIndex];
             const correctAnswer = currentTopic === 'Thème' ? wordPair.es : wordPair.fr;
-            if (answerInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-                feedbackElement.textContent = 'Correcto!';
+            const userAnswer = answerInput.value.trim().toLowerCase(); // Convertir a minúsculas
+
+            if (userAnswer === correctAnswer.toLowerCase()) { // Comparar en minúsculas
+                feedbackElement.textContent = '¡Correcto!';
                 score++;
                 scoreElement.textContent = `Puntuación: ${score}`;
             } else {
@@ -118,8 +133,10 @@ document.addEventListener('DOMContentLoaded', async function () {
         } else {
             const expressionPair = currentExpressions[currentIndex - 10];
             const correctAnswer = currentTopic === 'Thème' ? expressionPair.es : expressionPair.fr;
-            if (answerInput.value.trim().toLowerCase() === correctAnswer.toLowerCase()) {
-                feedbackElement.textContent = 'Correcto!';
+            const userAnswer = answerInput.value.trim().toLowerCase(); // Convertir a minúsculas
+
+            if (userAnswer === correctAnswer.toLowerCase()) { // Comparar en minúsculas
+                feedbackElement.textContent = '¡Correcto!';
                 score++;
                 scoreElement.textContent = `Puntuación: ${score}`;
             } else {
@@ -133,8 +150,25 @@ document.addEventListener('DOMContentLoaded', async function () {
         } else if (currentIndex < 13) {
             loadNextExpression();
         } else {
-            endGame();
+            checkFinalAnswer();
         }
+    }
+
+    function checkFinalAnswer() {
+        const expressionPair = currentExpressions[currentIndex - 10];
+        const correctAnswer = currentTopic === 'Thème' ? expressionPair.es : expressionPair.fr;
+        const userAnswer = answerInput.value.trim().toLowerCase(); // Convertir a minúsculas
+
+        if (userAnswer === correctAnswer.toLowerCase()) {
+            feedbackElement.textContent = '¡Correcto!';
+            score++;
+            scoreElement.textContent = `Puntuación: ${score}`;
+        } else {
+            feedbackElement.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
+        }
+
+        // Mostrar la respuesta correcta por unos segundos antes de mostrar el resultado final
+        setTimeout(endGame, 3000); // Espera 3 segundos antes de mostrar el resultado final
     }
 
     function startTimer() {
@@ -158,18 +192,16 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     btnTheme.addEventListener('click', () => startGame('theme'));
     btnVersion.addEventListener('click', () => startGame('version'));
-
-    // Enviar respuesta con el botón o con la tecla "Enter"
-    answerInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            clearInterval(timer);
-            checkAnswer();
-        }
-    });
-
     document.getElementById('submit-answer').addEventListener('click', () => {
         clearInterval(timer);
         checkAnswer();
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            clearInterval(timer); // Detener el temporizador si está en curso
+            checkAnswer();
+        }
     });
 
     replayButton.addEventListener('click', () => {
@@ -177,5 +209,3 @@ document.addEventListener('DOMContentLoaded', async function () {
         resultSection.style.display = 'none';
     });
 });
-
-
