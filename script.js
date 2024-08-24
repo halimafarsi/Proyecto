@@ -118,33 +118,29 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     function checkAnswer() {
+        let correctAnswer;
+
         if (currentIndex < 10) {
             const wordPair = currentWords[currentIndex];
-            const correctAnswer = currentTopic === 'Thème' ? wordPair.es : wordPair.fr;
-            const userAnswer = answerInput.value.trim().toLowerCase(); // Convertir a minúsculas
-
-            if (userAnswer === correctAnswer.toLowerCase()) { // Comparar en minúsculas
-                feedbackElement.textContent = '¡Correcto!';
-                score++;
-                scoreElement.textContent = `Puntuación: ${score}`;
-            } else {
-                feedbackElement.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
-            }
+            correctAnswer = currentTopic === 'Thème' ? wordPair.es : wordPair.fr;
         } else {
             const expressionPair = currentExpressions[currentIndex - 10];
-            const correctAnswer = currentTopic === 'Thème' ? expressionPair.es : expressionPair.fr;
-            const userAnswer = answerInput.value.trim().toLowerCase(); // Convertir a minúsculas
-
-            if (userAnswer === correctAnswer.toLowerCase()) { // Comparar en minúsculas
-                feedbackElement.textContent = '¡Correcto!';
-                score++;
-                scoreElement.textContent = `Puntuación: ${score}`;
-            } else {
-                feedbackElement.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
-            }
+            correctAnswer = currentTopic === 'Thème' ? expressionPair.es : expressionPair.fr;
         }
+
+        const userAnswer = answerInput.value.trim().toLowerCase(); // Convertir a minúsculas
+
+        if (userAnswer === correctAnswer.toLowerCase()) { // Comparar en minúsculas
+            feedbackElement.textContent = '¡Correcto!';
+            score++;
+            scoreElement.textContent = `Puntuación: ${score}`;
+        } else {
+            feedbackElement.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
+        }
+
         answerInput.value = '';
         currentIndex++;
+
         if (currentIndex < 10) {
             loadNextWord();
         } else if (currentIndex < 13) {
