@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
 
         // Mostrar la respuesta correcta por unos segundos antes de mostrar el resultado final
-        setTimeout(endGame, 3000); // Espera 3 segundos antes de mostrar el resultado final
+        setTimeout(endGame, 3); // Espera 3 segundos antes de mostrar el resultado final
     }
 
     function startTimer() {
