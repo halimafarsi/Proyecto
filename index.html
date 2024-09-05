@@ -17,9 +17,13 @@
             <h2>Selecciona una temática:</h2>
             <ul id="topics-list"></ul>
         </div>
+        <div id="memorization-section" style="display:none;">
+            <h2>Memoriza las palabras:</h2>
+            <div id="memorization-words"></div>
+            <button id="replay-button">Volver a Jugar</button>
+        </div>
         <div id="game" style="display:none;">
             <h2 id="topic-title"></h2>
-            <p id="image"></p>
             <img id="question-image" src="" alt="Imagen de la palabra" style="max-width: 100px; display: none;">
             <p id="question"></p>
             <input type="text" id="answer" placeholder="Escribe tu respuesta...">
@@ -31,9 +35,8 @@
         <div id="result-section" style="display: none;">
             <h2>Resultado Final</h2>
             <p id="final-score"></p>
-            <button id="replay-button">Jugar de nuevo</button>
+            <button id="replay-button-final">Jugar de nuevo</button>
         </div>
-        
     </div>
     <script src="script.js"></script>
 </body>
