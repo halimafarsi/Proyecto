@@ -60,7 +60,21 @@ document.addEventListener('DOMContentLoaded', async function () {
         topicSelection.style.display = 'none';
         gameSection.style.display = 'block';
         scoreElement.textContent = `Puntuación: ${score}`;
-        loadNextWord();
+        showMemorizationPhase();
+    }
+
+    function showMemorizationPhase() {
+        let memorizationText = 'Tiene 30 segundos para memorizar las palabras:\n\n';
+        currentWords.forEach(pair => {
+            memorizationText += `${pair.fr} - ${pair.es}\n`;
+        });
+
+        alert(memorizationText); // Muestra las palabras para que el usuario las memorice.
+
+        setTimeout(() => {
+            alert("¡El tiempo para memorizar ha terminado! El juego comienza ahora.");
+            loadNextWord();
+        }, 30000); // 30 segundos para memorizar
     }
 
     function loadNextWord() {
@@ -163,8 +177,8 @@ document.addEventListener('DOMContentLoaded', async function () {
             feedbackElement.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
         }
 
-        // Mostrar la respuesta correcta por unos segundos antes de mostrar el resultado final
-        setTimeout(endGame, 3); // Espera 3 segundos antes de mostrar el resultado final
+        // Mostrar la respuesta correcta por 5 segundos antes de mostrar el resultado final
+        setTimeout(endGame, 5000); // Espera 5 segundos antes de mostrar el resultado final
     }
 
     function startTimer() {
@@ -205,3 +219,4 @@ document.addEventListener('DOMContentLoaded', async function () {
         resultSection.style.display = 'none';
     });
 });
+

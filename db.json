@@ -1,11 +1,11 @@
 {
-    "themes": {
-        "Comida": [
+"themes": {
+    "Comida": [
             { "fr": "pomme", "es": "manzana"},
             { "fr": "fromage", "es": "queso"},
             { "fr": "pain", "es": "pan"}
         ],
-        "jardinería": [
+    "jardinería": [
             { "fr": "abattre", "es": "cortar, tirar", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/jardinería/cortar.jfif" },
             { "fr": "l'abricot", "es": "el albaricoque", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/jardinería/albaricoque.jfif"},
             { "fr": "l'ail", "es": "el ajo", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/jardinería/ajo.jpg"},
@@ -142,7 +142,7 @@
             { "fr": "le romarin", "es": "el romero", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/jardinería/romero.jfif"}
 
         ],
-        "especias": [
+    "especias": [
             { "fr": "le clou de girofle", "es": "el clavo de olor", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/especias/olor.jfif"},
             { "fr": "le cumin", "es": "el comino", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/especias/comino.jfif"},
             { "fr": "le curcuma", "es": "la cúrcuma", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/especias/cúrcuma.jfif"},
@@ -168,7 +168,7 @@
             { "fr": "le laurier", "es": "el laurel", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/especias/laurel.jfif"},
             { "fr": "la menthe", "es": "la menta", "img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/especias/menta.jfif"}
         ],
-        "pájaros": [   
+    "pájaros": [   
             { "fr": "aigle", "es": "águila","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/águila.jfif"},
             { "fr": "autruche", "es": "avestruz","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/avestruz.jfif"},
             { "fr": "bécasse", "es": "becada","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/becada.jfif"},
@@ -206,7 +206,7 @@
             { "fr": "tourterelle", "es": "tórtola","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/tórtola.jfif"},
             { "fr": "vautour", "es": "buitre","img": "https://raw.githubusercontent.com/halimafarsi/Proyecto/main/im%C3%A1genes/p%C3%A1jaros/buitre.jfif"}
         ],
-        "religón": [
+    "religión": [
             { "fr": "l'église", "es": "la iglesia" },
             { "fr": "la messe", "es": "la misa" },
             { "fr": "paroissien, paroissienne", "es": "feligrés(a), parroquiano(a)" },
@@ -275,15 +275,15 @@
             { "fr": "un pèlerinage", "es": "una peregrinación" },
             { "fr": "béni", "es": "bendito" },
             { "fr": "le confessionnal", "es": "el confesionario" },
-            { "fr": "el deán", "es": " le doyen" },
-            { "fr": "un fraile", "es": " un frère (religieux, moine)" },
-            { "fr": "el cabildo", "es": " le chapitre" },
-            { "fr": "persignar", "es": " faire le signe de la croix" },
-            { "fr": "persignarse", "es": " se signer" },
-            { "fr": "una liturgia", "es": " une liturgie" },
-            { "fr": "una monja de clausura", "es": " une religieuse de cloître" },
+            { "fr": "el deán", "es": "le doyen" },
+            { "fr": "un fraile", "es": "un frère (religieux, moine)" },
+            { "fr": "el cabildo", "es": "le chapitre" },
+            { "fr": "persignar", "es": "faire le signe de la croix" },
+            { "fr": "persignarse", "es": "se signer" },
+            { "fr": "una liturgia", "es": "une liturgie" },
+            { "fr": "una monja de clausura", "es": "une religieuse de cloître" },
             { "fr": "le cimetière", "es": "el cementerio" },
-            { "fr": " aller à la messe", "es": "ir a misa" },
+            { "fr": "aller à la messe", "es": "ir a misa" },
             { "fr": "jésus-christ", "es": "cristo" },
             { "fr": "le baptême", "es": "el bautizo" },
             { "fr": "la première communion", "es": "la primera comunión" },
@@ -341,6 +341,107 @@
             { "fr": "le déguisement", "es": "el disfraz" },
             { "fr": "le masque", "es": "la máscara" },
             { "fr": "le bûcher", "es": "la hoguera" }
+],
+
+    "Clásico-Teatro": [
+            { "fr": "Loge", "es": "Aposento"},
+            { "fr": "Ruse, stratagème", "es": "Ardid"},
+            { "fr": "Vigie, tour de guet", "es": "Atalaya"},
+            { "fr": "Sauvage, barbare", "es": "Bárbaro"},
+            { "fr": "Énergie, vigueur", "es": "Brío"},
+            { "fr": "Cape et épée ", "es": "Capa y espada"},
+            { "fr": "Raisonnable, sensé", "es": "Cuerdo"},
+            { "fr": "Malheureux, infortuné", "es": "Desdichado"},
+            { "fr": "Déguisement", "es": "Disfraz"},
+            { "fr": "Grâce, esprit", "es": "Donaire"},
+            { "fr": "Tromperie, duperie", "es": "Engaño"},
+            { "fr": "Écuyer, serviteur", "es": "Escudero"},
+            { "fr": "Farce", "es": "Farsa"},
+            { "fr": "Amant, séducteur ", "es": "Galán"},
+            { "fr": "Charme, esprit", "es": "Gracia"},
+            { "fr": "Infamie, honte", "es": "Infamia"},
+            { "fr": "Infortune, malheur", "es": "Infortunio"},
+            { "fr": "Jacara", "es": "Jácara"},
+            { "fr": "Flatterie", "es": "Lisonja"},
+            { "fr": "Malchance", "es": "Malaventura"},
+            { "fr": "Lieu de ragots, lieu de rumeurs", "es": "Mentidero"},
+            { "fr": "Grâce, faveur", "es": "Merced"},
+            { "fr": "Monstre", "es": "Monstruo"},
+            { "fr": "Médire, chuchoter", "es": "Murmurar"},
+            { "fr": "Audace, hardiesse", "es": "Osadía"},
+            { "fr": "Rustre, paysan", "es": "Patán"},
+            { "fr": "Péché", "es": "Pecado"},
+            { "fr": "Querelle, bagarre", "es": "Pendencia"},
+            { "fr": "Voleur, fripon", "es": "Pícaro"},
+            { "fr": "Procès, litige", "es": "Pleito"},
+            { "fr": "Prudence", "es": "Prudencia"},
+            { "fr": "Dispute, querelle", "es": "Querella"},
+            { "fr": "Renommée, réputation", "es": "Renombre"},
+            { "fr": "Revanche", "es": "Revancha"},
+            { "fr": "Colère, fureur", "es": "Saña"},
+            { "fr": "Complice", "es": "Secuaz"},
+            { "fr": "Calme, tranquillité", "es": "Sosiego"},
+            { "fr": "Trahison", "es": "Traición"},
+            { "fr": "Troublé, inquiet", "es": "Turbado"},
+            { "fr": "Vaillant, courageux", "es": "Valeroso"},
+            { "fr": "Vengeance", "es": "Venganza"},
+            { "fr": "Vilain, roturier ", "es": "Villano"},
+            { "fr": "Vertu", "es": "Virtud"},
+            { "fr": "Jeune garçon, berger", "es": "Zagal"},
+            { "fr": "clairvoyant, devin", "es": "Zahorí"}
+],
+    "Telas": [
+        { "fr": "Damas", "es": "Damasco"},
+        { "fr": "Brocart", "es": "Brocado"},
+        { "fr": "Velours", "es": "Terciopelo"},
+        { "fr": "Drap", "es": "Paño"},
+        { "fr": "Satin", "es": "Raso"},
+        { "fr": "Soie", "es": "Seda"},
+        { "fr": "Lin", "es": "Lino"},
+        { "fr": "Laine", "es": "Lana"},
+        { "fr": "Taffetas", "es": "Tafetán"},
+        { "fr": "Dentelle", "es": "Encaje"},
+        { "fr": "Frisé", "es": "Frisado"},
+        { "fr": "Batiste", "es": "Batista"},
+        { "fr": "Drap épais", "es": "Velarte"},
+        { "fr": "Crêpe", "es": "Crespón"},
+        { "fr": "Hollande", "es": "Holanda"},
+        { "fr": "Sergé", "es": "Sarga"},
+        { "fr": "Hermine", "es": "Armiño"},
+        { "fr": "Pourpre", "es": "Púrpura"},
+        { "fr": "Velours épais", "es": "Velludo"},
+        { "fr": "Serge ", "es": "Sayal"},
+        { "fr": "Coton", "es": "Algodón"},
+        { "fr": "Laine", "es": "Lana"},
+        { "fr": "Soie", "es": "Seda"},
+        { "fr": "Lin", "es": "Lino"},
+        { "fr": "Velours", "es": "Terciopelo"},
+        { "fr": "Satin", "es": "Satén"},
+        { "fr": "Dentelle", "es": "Encaje"},
+        { "fr": "Flanelle", "es": "Franela"},
+        { "fr": "Velours côtelé", "es": "Pana"},
+        { "fr": "Taffetas", "es": "Tafetán"},
+        { "fr": "Gaze", "es": "Gasa"},
+        { "fr": "Tulle", "es": "Tul"},
+        { "fr": "Organdi", "es": "Organdí"},
+        { "fr": "Mousseline", "es": "Muselina"},
+        { "fr": "Cachemire", "es": "Cachemira"},
+        { "fr": "Brocart", "es": "Brocado"},
+        { "fr": "Jacquard", "es": "Jacquard"},
+        { "fr": "Feutre", "es": "Fieltro"},
+        { "fr": "Nylon", "es": "Nylon"},
+        { "fr": "Polyester", "es": "Poliéster"},
+        { "fr": "Satin", "es": "Raso"},
+        { "fr": "Popeline", "es": "Popelina"},
+        { "fr": "Chamois ", "es": "Gamuza"},
+        { "fr": "Damas", "es": "Damasco"},
+        { "fr": "Chiffon", "es": "Chifón"},
+        { "fr": "Crêpe", "es": "Crespón"},
+        { "fr": "Laine vierge, toison", "es": "Vellón"},
+        { "fr": "Velours côtelé", "es": "Corderoy"},
+        { "fr": "Denim, jean", "es": "Denim"},
+        { "fr": "Cuir verni", "es": "Charol"},
+        { "fr": "Étamine", "es": "Jerga"}
 ]
     },
     "expressions": [
@@ -358,6 +459,17 @@
         { "fr": "s'endormir sus les lauriers", "es": "dormirse en los laureles"},
         { "fr": "c'est bonnet blanc et blanc bonnet", "es": "olivo y aceite todo es uno"},
         { "fr": "tout n'est pas rose", "es": "no todo el monte es orégano"},
-        { "fr": "semer la discorde", "es": "echar la semilla de la discordia"}
+        { "fr": "semer la discorde", "es": "echar la semilla de la discordia"},
+        { "fr": "Être dans la fleur de l’âge, être dans la jeunesse et la vigueur", "es": "Estar en la flor de la vida"},
+        { "fr": "Faire l’innocent, faire semblant de ne pas comprendre", "es": "Hacerse el desentendido"},
+        { "fr": "Le sang parle, les liens de sang sont plus forts", "es": "La sangre llama"},
+        { "fr": "Jouer double jeu, être hypocrite ou trompeur", "es": "Jugar con dos barajas"},
+        { "fr": "Sortir les marrons du feu, résoudre un problème pour quelqu’un d’autre", "es": "Sacar las castañas del fuego"},
+        { "fr": "Voir la paille dans l’œil de l’autre, critiquer les défauts des autres tout en ignorant les siens", "es": "Ver la paja en el ojo ajeno"},
+        { "fr": "Prendre son courage à deux mains, surmonter une difficulté avec force", "es": "Hacer de tripas corazón"},
+        { "fr": "Mettre les points sur les i, clarifier une situation", "es": "Poner los puntos sobre las íes"},
+        { "fr": "Déchoir, perdre son statut social ou sa réputation", "es": "Venirse a menos"},
+        { "fr": "Être entre l’épée et le mur, être dans une situation sans issue", "es": "Estar entre la espada y la pared"}
+
     ]
 }
