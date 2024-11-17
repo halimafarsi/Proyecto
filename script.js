@@ -96,123 +96,107 @@ document.addEventListener('DOMContentLoaded', async function () {
                     imageElement.style.display = 'none';
                 };
             } else {
-                image 
-                Element.style.display = 'none'; }
-                startTimer();
-            } else {
-                loadNextExpression();
+                imageElement.style.display = 'none';
             }
+            startTimer();
+        } else {
+            loadNextExpression();
         }
-        
-        function loadNextExpression() {
-            if (currentIndex < 13) {
-                const expressionPair = currentExpressions[currentIndex - 10];
-                questionElement.textContent = currentTopic === 'Thème' ? expressionPair.fr : expressionPair.es;
-        
-                if (expressionPair.img) {
-                    imageElement.src = expressionPair.img;
-                    imageElement.style.display = 'block';
-                    imageElement.onerror = () => {
-                        imageElement.style.display = 'none';
-                    };
-                } else {
-                    imageElement.style.display = 'none';
-                }
-        
-                startTimer();
-            } else {
-                checkFinalAnswer();
-            }
-        }
-        
-        function checkAnswer() {
-            let correctAnswer, userAnswer;
-        
-            if (currentIndex < 10) {
-                const wordPair = currentWords[currentIndex];
-                correctAnswer = currentTopic === 'Thème' ? wordPair.es : wordPair.fr;
-                userAnswer = answerInput.value.trim().toLowerCase();
-            } else {
-                const expressionPair = currentExpressions[currentIndex - 10];
-                correctAnswer = currentTopic === 'Thème' ? expressionPair.es : expressionPair.fr;
-                userAnswer = answerInput.value.trim().toLowerCase();
-            }
-        
-            if (userAnswer === correctAnswer.toLowerCase()) {
-                feedbackElement.textContent = '¡Correcto!';
-                score++;
-                scoreElement.textContent = `Puntuación: ${score}`;
-            } else {
-                feedbackElement.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
-            }
-        
-            answerInput.value = '';
-            currentIndex++;
-        
-            if (currentIndex < 10) {
-                loadNextWord();
-            } else if (currentIndex < 13) {
-                loadNextExpression();
-            } else {
-                checkFinalAnswer();
-            }
-        }
-        
-        function checkFinalAnswer() {
+    }
+
+    function loadNextExpression() {
+        if (currentIndex < 13) {
             const expressionPair = currentExpressions[currentIndex - 10];
-            const correctAnswer = currentTopic === 'Thème' ? expressionPair.es : expressionPair.fr;
-            const userAnswer = answerInput.value.trim().toLowerCase();
-        
-            if (userAnswer === correctAnswer.toLowerCase()) {
-                feedbackElement.textContent = '¡Correcto!';
-                score++;
-                scoreElement.textContent = `Puntuación: ${score}`;
+            questionElement.textContent = currentTopic === 'Thème' ? expressionPair.fr : expressionPair.es;
+
+            if (expressionPair.img) {
+                imageElement.src = expressionPair.img;
+                imageElement.style.display = 'block';
+                imageElement.onerror = () => {
+                    imageElement.style.display = 'none';
+                };
             } else {
-                feedbackElement.textContent = `Incorrecto. La respuesta correcta es: ${correctAnswer}`;
+                imageElement.style.display = 'none';
             }
-        
-            setTimeout(endGame, 500); // Espera 5 segundos antes de mostrar el resultado final
+
+            startTimer();
+        } else {
+            checkFinalAnswer();
         }
-        
-        function startTimer() {
-            let timeLeft = 60;
+    }
+
+    function checkAnswer() {
+        let correctAnswers, userAnswer;
+
+        if (currentIndex < 10) {
+            const wordPair = currentWords[currentIndex];
+            correctAnswers = (currentTopic === 'Thème' ? wordPair.es : wordPair.fr).toLowerCase().split(',').map(ans => ans.trim());
+            userAnswer = answerInput.value.trim().toLowerCase();
+        } else {
+            const expressionPair = currentExpressions[currentIndex - 10];
+            correctAnswers = (currentTopic === 'Thème' ? expressionPair.es : expressionPair.fr).toLowerCase().split(',').map(ans => ans.trim());
+            userAnswer = answerInput.value.trim().toLowerCase();
+        }
+
+        if (correctAnswers.includes(userAnswer)) {
+            feedbackElement.textContent = '¡Correcto!';
+            score++;
+            scoreElement.textContent = `Puntuación: ${score}`;
+        } else {
+            feedbackElement.textContent = `Incorrecto. Las respuestas correctas son: ${correctAnswers.join(', ')}`;
+        }
+
+        answerInput.value = '';
+        currentIndex++;
+
+        if (currentIndex < 10) {
+            loadNextWord();
+        } else if (currentIndex < 13) {
+            loadNextExpression();
+        } else {
+            endGame();
+        }
+    }
+
+    function startTimer() {
+        let timeLeft = 60;
+        timerElement.textContent = `Tiempo: ${timeLeft}s`;
+        timer = setInterval(() => {
+            timeLeft--;
             timerElement.textContent = `Tiempo: ${timeLeft}s`;
-            timer = setInterval(() => {
-                timeLeft--;
-                timerElement.textContent = `Tiempo: ${timeLeft}s`;
-                if (timeLeft <= 0) {
-                    clearInterval(timer);
-                    checkAnswer();
-                }
-            }, 1000);
-        }
-        
-        function endGame() {
-            gameSection.style.display = 'none';
-            resultSection.style.display = 'block';
-            finalScoreElement.textContent = `Tu puntuación final es: ${score} de 13`;
-            replayButtonFinal.style.display = 'block'; // Mostrar el botón "Jugar de nuevo" en la sección de resultados
-        }
-        
-        btnTheme.addEventListener('click', () => startGame('theme'));
-        btnVersion.addEventListener('click', () => startGame('version'));
-        document.getElementById('submit-answer').addEventListener('click', () => {
-            clearInterval(timer);
-            checkAnswer();
-        });
-        
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
+            if (timeLeft <= 0) {
                 clearInterval(timer);
                 checkAnswer();
             }
-        });
-        
-        replayButton.addEventListener('click', () => {
-            startGame(currentTopic === 'Thème' ? 'theme' : 'version');
-        });
-        
-        replayButtonFinal.addEventListener('click', () => {
-            startGame(currentTopic === 'Thème' ? 'theme' : 'version');
-        });
-    });        
+        }, 1000);
+    }
+
+    function endGame() {
+        gameSection.style.display = 'none';
+        resultSection.style.display = 'block';
+        finalScoreElement.textContent = `Tu puntuación final es: ${score} de 13`;
+        replayButton.style.display = 'block'; // Mostrar el botón "Jugar de nuevo" en la sección de resultados
+    }
+
+    btnTheme.addEventListener('click', () => startGame('theme'));
+    btnVersion.addEventListener('click', () => startGame('version'));
+    document.getElementById('submit-answer').addEventListener('click', () => {
+        clearInterval(timer);
+        checkAnswer();
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            clearInterval(timer);
+            checkAnswer();
+        }
+    });
+
+    replayButton.addEventListener('click', () => {
+        startGame(currentTopic === 'Thème' ? 'theme' : 'version');
+    });
+
+    replayButton.addEventListener('click', () => {
+        startGame(currentTopic === 'Thème' ? 'theme' : 'version');
+    });
+}); 
